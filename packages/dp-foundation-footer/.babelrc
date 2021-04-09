@@ -1,0 +1,31 @@
+{
+  "presets": [
+    "@babel/preset-typescript",
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs",
+        "useBuiltIns": false
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["babel-plugin-react-require"],
+    ["styled-components", { "ssr": true }],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@components": "./src/components",
+          "@constants": "./src/constants",
+          "@lib": "./src/lib",
+          "@theme": "./src/themes",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}

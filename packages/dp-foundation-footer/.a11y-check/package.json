@@ -1,0 +1,29 @@
+{
+  "name": "dp-e2e-health",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Automation for checking the health of DP projects",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node test-storybook.js",
+    "start:ts": "node --loader ts-node/esm.mjs --experimental-top-level-await test-storybook.ts"
+  },
+  "keywords": [
+    "automation",
+    "test",
+    "puppeteer",
+    "a11y"
+  ],
+  "author": "Greatminds",
+  "license": "ISC",
+  "dependencies": {
+    "lighthouse": "^6.2.0",
+    "puppeteer": "^5.2.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@types/puppeteer": "^3.0.1"
+  }
+}

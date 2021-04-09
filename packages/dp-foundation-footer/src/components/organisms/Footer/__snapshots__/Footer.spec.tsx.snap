@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly 1`] = `
+.c0 {
+  cursor: pointer;
+  color: #407177;
+  font-family: Circular std;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.c0:hover {
+  color: #649295;
+}
+
+.c0:active {
+  color: #7CA3A1;
+}
+
+.c0:focus {
+  border: 3px solid #7A7562;
+  border-radius: 4px;
+}
+
+<div>
+  <div>
+    <span>
+      The footer should be clear
+    </span>
+    <br />
+    here we could reuse Cortex components like 
+    <a
+      class="c0"
+      href="https://www.google.com"
+      target="_blank"
+    >
+      Link
+    </a>
+      or make our own implementation
+  </div>
+</div>
+`;

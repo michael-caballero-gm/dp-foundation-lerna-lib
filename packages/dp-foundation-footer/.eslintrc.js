@@ -1,0 +1,46 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true,
+  },
+  plugins: ['prettier', 'react'],
+  extends: [
+    'airbnb-base',
+    'prettier',
+    'prettier/react',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    '@greatminds/eslint-config/ts-react-next',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['./tsconfig.json'],
+  },
+  rules: {
+    'react/jsx-fragments': 'off',
+    'react/jsx-wrap-multilines': [
+      'error',
+      {
+        declaration: 'parens',
+        assignment: 'parens',
+        return: 'parens',
+        arrow: 'parens',
+        condition: 'ignore',
+        logical: 'ignore',
+        prop: 'ignore',
+      },
+    ],
+    '@typescript-eslint/no-var-requires': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'object-curly-newline': 'off',
+    'operator-linebreak': 'off',
+    'no-confusing-arrow': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'react/jsx-indent': 'off',
+    'function-paren-newline': 'off',
+    'no-useless-escape': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
+};

@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "postinstall": "lerna bootstrap --hoist",
+    "build": "lerna run build",
+    "publish": "lerna publish --registry=http://localhost:4873"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
