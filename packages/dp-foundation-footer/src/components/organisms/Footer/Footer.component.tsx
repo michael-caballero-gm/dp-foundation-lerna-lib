@@ -9,12 +9,12 @@ interface IFooter {
   isHabitatContext?: boolean;
 }
 
-export const Footer: React.FC<IFooter> = ({isHabitatContext = true}) => {
+export const Footer: React.FC<IFooter> = ({isHabitatContext = true, ...props}) => {
   return(
     // StyledFooter was stolen from Cortex, DO NOT leave it like this, implement own styles
-    <StyledFooter>
-      {isHabitatContext ? <span>The footer should be clear</span> : <span>The footer should be dark</span>}<br/>
-      here we could reuse Cortex components like <Link href="https://www.google.com" target="_blank">Link</Link>  or make our own implementation
+    <StyledFooter {...props}>
+      {isHabitatContext ? <p>The footer should be clear</p> : <p>The footer should be dark</p>}<br/>
+      here we could reuse Cortex components like <Link href="https://www.google.com" target="_blank">Link</Link>  <span>or make our own implementation</span>
     </StyledFooter>
   );
 };
