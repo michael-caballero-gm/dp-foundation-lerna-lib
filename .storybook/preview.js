@@ -2,9 +2,17 @@ import React from 'react';
 import { baseTheme } from '@greatminds/dp-atomic-ui-lib';
 import { addDecorator } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
+import GlobalFonts from '../fonts/globalFonts';
 
-import GlobalFonts from '~/fonts/globalFonts';
-import '@greatminds/dp-icominds-lib/dist/css/style.css';
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+}
 
 addDecorator(StoryFn => (
   <ThemeProvider theme={baseTheme}>
