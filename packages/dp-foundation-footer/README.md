@@ -9,3 +9,9 @@ Publish your component using your favourite method (an example with verdaccio in
 
 Use it in your project
 `import { Footer } from '@greatminds/dp-foundation-footer';`
+
+Unit test
+`npm run test`
+
+Unit test update snapshots
+`npm run test -- -u`
