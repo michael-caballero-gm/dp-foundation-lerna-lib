@@ -1,22 +1,45 @@
 import React from 'react';
-import { StyledFooter } from './Footer.styled';
+import { StyledFooter, LinksContainer, CopyRigthContainer } from './Footer.styled';
 import { Link } from '@greatminds/dp-atomic-ui-lib';
 
+interface ILink {
+  href: string;
+  text: string;
+}
 interface IFooter {
-  /**
-   * Defines if the footer is used in habitat apps or not
-   */
+  // Defines if the footer is used in habitat apps or not
   isHabitatContext?: boolean;
+  links: ILink[];
 }
 
-export function Footer ({isHabitatContext}: IFooter){
+/**
+ * Footer Component
+ *
+ * @param {IFooter} { isHabitatContext, links }
+ * @prop {isHabitatContext}   -   defines if the footer is used in habitat apps or not
+ * @prop {links}              -   Links list
+ * @return {*} 
+ */
+export function Footer ({ isHabitatContext, links }: IFooter) {
+  const currentYear = (new Date()).getFullYear();
   return(
-    // StyledFooter was stolen from Cortex, DO NOT leave it like this, implement own styles
     <StyledFooter>
-      {isHabitatContext ? <p>The footer should be clear</p> : <p>The footer should be dark</p>}<br/>
-      here we could reuse Cortex components like <Link href="https://www.google.com" target="_blank">Link</Link>  <span>or make our own implementation</span>
+      <LinksContainer>
+        <ul>
+          { links.map((link: ILink) => (
+            <li>
+              <Link href={link.href} target="_blank" key={link.text}>{link.text}</Link>
+            </li>
+            ))
+          }
+        </ul>
+      </LinksContainer>
+
+      <CopyRigthContainer>
+        <p>
+          {` © ${currentYear} GREAT MINDS PBC`}
+        </p>
+      </CopyRigthContainer>
     </StyledFooter>
   );
 };
-
-// export default Footer;
