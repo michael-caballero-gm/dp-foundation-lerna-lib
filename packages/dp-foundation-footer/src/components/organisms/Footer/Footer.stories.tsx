@@ -8,9 +8,10 @@ export default {
   component: Footer,
   args: {
     links: [
-      { href: 'https://google.com', text: 'Google' },
-      { href: 'https://en.wikipedia.org/wiki/Unicorn', text: 'Unicorns' },
-      { href: 'https://en.wikipedia.org/wiki/Kitten', text: 'Kittens' },
+      { href: '#', text: 'Lorem' },
+      { href: '#', text: 'Ipsum' },
+      { href: '#', text: 'Dolor' },
+      { href: '#', text: 'Sit Amet' },
     ]
   }
 };

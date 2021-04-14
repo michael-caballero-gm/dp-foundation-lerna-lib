@@ -1,18 +1,29 @@
 import styled, { css, ThemeProps } from 'styled-components';
 import { BaseTheme } from '~/themes/baseTheme';
 
-export const LinksContainer = styled.div(
-  ({ theme: { typography, measurements } }: ThemeProps<BaseTheme>) => css`
+export interface IFooterProps {
+  appContext: string;
+}
+
+export const LinksContainer = styled.nav(
+  ({ theme: { measurements } }: ThemeProps<BaseTheme>) => css`
     display: flex;
     a {
       margin-right: calc(${measurements.extraLarge} * 2);
       text-decoration: none;
     }
+    ul {
+      padding: 0;
+      display: flex;
+    }
+    li {
+      list-style-type: none
+    }
   `,
 );
 
 export const CopyRigthContainer = styled.div(
-  ({ theme: { colors } }: ThemeProps<BaseTheme>) => css`
+  () => css`
     display: flex;
     p {
       &:not(:first-child):before {
@@ -23,10 +34,10 @@ export const CopyRigthContainer = styled.div(
   `,
 );
 
-export const StyledFooter = styled.footer(
-  ({ theme: { colors, typography } }: ThemeProps<BaseTheme>) => css`
+export const StyledFooter = styled.footer<IFooterProps>(
+  ({ theme: { colors, typography }, appContext }) => css`
     align-items: center;
-    background-color: ${colors.beige[60]};
+    background-color: ${appContext === 'affirm' ? colors.white : colors.beige[60] };
     border-top: 1px solid ${colors.beige[140]};
     box-sizing: border-box;
     display: flex;

@@ -8,23 +8,22 @@ interface ILink {
 }
 interface IFooter {
   // Defines if the footer is used in habitat apps or not
-  isHabitatContext?: boolean;
+  appContext?: 'habitat' | 'affirm';
   links: ILink[];
 }
 
 /**
  * Footer Component
  *
- * @param {IFooter} { isHabitatContext, links }
- * @prop {isHabitatContext}   -   defines if the footer is used in habitat apps or not
- * @prop {links}              -   Links list
- * @return {*} 
+ * @param {IFooter} { appContext, links }
+ * @prop {appContext}   -   defines if the footer is used in habitat apps or not
+ * @prop {links}        -   Links list
  */
-export function Footer ({ isHabitatContext, links }: IFooter) {
+export function Footer ({ links, appContext }: IFooter) {
   const currentYear = (new Date()).getFullYear();
   return(
-    <StyledFooter>
-      <LinksContainer>
+    <StyledFooter appContext={appContext}>
+      <LinksContainer aria-labelledby="secondary">
         <ul>
           { links.map((link: ILink) => (
             <li>
