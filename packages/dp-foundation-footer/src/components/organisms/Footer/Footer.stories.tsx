@@ -1,18 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Footer } from './Footer.component';
-
-const StyledContainer = styled.div`
-  > div {
-    margin-left: 10px;
-  }
-`;
 
 /* Storybook Footer */
 export default {
   title: 'Organisms/Footer',
   component: Footer,
+  args: {
+    links: [
+      { href: '#', text: 'Lorem' },
+      { href: '#', text: 'Ipsum' },
+      { href: '#', text: 'Dolor' },
+      { href: '#', text: 'Sit Amet' },
+    ]
+  }
 };
 
 export const Default = (props) => <Footer {...props}/>;

@@ -1,45 +1,64 @@
 import styled, { css, ThemeProps } from 'styled-components';
 import { BaseTheme } from '~/themes/baseTheme';
 
-export const StyledFooter = styled.footer(
-  ({ theme: { colors, typography, measurements } }: ThemeProps<BaseTheme>) => css`
-    background-color: ${colors.beige[60]};
+export interface IFooterProps {
+  appContext: string;
+}
+
+export const LinksContainer = styled.nav(
+  ({ theme: { measurements } }: ThemeProps<BaseTheme>) => css`
+    display: flex;
+    a {
+      margin-right: calc(${measurements.extraLarge} * 2);
+      text-decoration: none;
+    }
+    ul {
+      padding: 0;
+      display: flex;
+    }
+    li {
+      list-style-type: none
+    }
+  `,
+);
+
+export const CopyRigthContainer = styled.div(
+  () => css`
+    display: flex;
+    p {
+      &:not(:first-child):before {
+        content: '|';
+        margin: 0 5px;
+      }
+    }
+  `,
+);
+
+export const StyledFooter = styled.footer<IFooterProps>(
+  ({ theme: { colors, typography }, appContext }) => css`
+    align-items: center;
+    background-color: ${appContext === 'affirm' ? colors.white : colors.beige[60] };
+    border-top: 1px solid ${colors.beige[140]};
     box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 56px;
+    flex-direction: column;
     min-height: 48px;
+    padding: 12px 0;
     width: 100%;
-    border-top: 1px solid ${colors.beige[140]};
 
     a,
     p {
-      font-size: ${typography.sizes.extraSmall};
-      text-transform: uppercase;
-      line-height: 1.333;
-      letter-spacing: 1px;
       font-family: ${typography.fonts.primary};
+      font-size: ${typography.sizes.extraSmall};
+      letter-spacing: 1px;
+      line-height: 1.333;
+      text-transform: uppercase;
     }
 
-    .links {
-      display: flex;
-      a {
-        text-decoration: none;
-        margin-right: calc(${measurements.extraLarge} * 2);
-      }
-    }
-
-    .copyright {
-      display: flex;
-      p {
-        color: ${colors.n[100]};
-
-        &:not(:first-child):before {
-          content: '|';
-          margin: 0 5px;
-        }
-      }
+    @media only screen and (min-width: 769px) {
+      flex-direction: row;
+      padding: 0 56px;
+      justify-content: space-between;
     }
   `,
 );
