@@ -22,12 +22,12 @@ interface IFooter {
 export function Footer ({ links, appContext }: IFooter) {
   const currentYear = (new Date()).getFullYear();
   return(
-    <StyledFooter appContext={appContext}>
+    <StyledFooter appContext={appContext} aria-label='footer' role='footer'>
       <LinksContainer aria-labelledby="secondary">
-        <ul>
+        <ul aria-label='links'>
           { links.map((link: ILink) => (
             <li>
-              <Link href={link.href} target="_blank" key={link.text}>{link.text}</Link>
+              <Link href={link.href} target="_blank" key={link.text} >{link.text}</Link>
             </li>
             ))
           }
@@ -42,3 +42,6 @@ export function Footer ({ links, appContext }: IFooter) {
     </StyledFooter>
   );
 };
+
+
+//aria-label={link.text}
