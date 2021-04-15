@@ -43,5 +43,3 @@ export function Footer ({ links, appContext }: IFooter) {
   );
 };
 
-
-//aria-label={link.text}
