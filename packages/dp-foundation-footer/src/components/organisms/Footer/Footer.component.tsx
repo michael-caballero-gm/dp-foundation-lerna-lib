@@ -8,8 +8,27 @@ interface ILink {
 }
 interface IFooter {
   // Defines if the footer is used in habitat apps or not
-  appContext?: 'habitat' | 'affirm';
-  links: ILink[];
+  isHabitatContext?: boolean;
+}
+
+const links = [
+  { href: 'https://greatminds.org/terms-of-service', text: 'Terms of service' },
+  { href: 'https://greatminds.org/privacy-policy', text: 'Privacy policy' },
+  { href: 'https://legal.greatminds.org', text: 'Credits' },
+  { href: 'https://www.requesteasy.com/5dfa66654e2a1d00045c7cdd', text: 'CA Residents: Do Not Sell My Info' },
+];
+
+const Links: React.FC = () => {
+  return (
+    <ul>
+      { links.map((link: ILink) => (
+        <li>
+          <Link href={link.href} target="_blank" key={link.text}>{link.text}</Link>
+        </li>
+      ))
+      }
+    </ul>
+  )
 }
 
 /**
@@ -17,21 +36,13 @@ interface IFooter {
  *
  * @param {IFooter} { appContext, links }
  * @prop {appContext}   -   defines if the footer is used in habitat apps or not
- * @prop {links}        -   Links list
  */
-export function Footer ({ links, appContext }: IFooter) {
+export function Footer({ isHabitatContext = true }: IFooter) {
   const currentYear = (new Date()).getFullYear();
-  return(
-    <StyledFooter appContext={appContext}>
+  return (
+    <StyledFooter isHabitatContext={isHabitatContext}>
       <LinksContainer aria-labelledby="secondary">
-        <ul>
-          { links.map((link: ILink) => (
-            <li>
-              <Link href={link.href} target="_blank" key={link.text}>{link.text}</Link>
-            </li>
-            ))
-          }
-        </ul>
+        <Links />
       </LinksContainer>
 
       <CopyRigthContainer>

@@ -2,7 +2,7 @@ import styled, { css, ThemeProps } from 'styled-components';
 import { BaseTheme } from '~/themes/baseTheme';
 
 export interface IFooterProps {
-  appContext: string;
+  isHabitatContext: boolean;
 }
 
 export const LinksContainer = styled.nav(
@@ -35,9 +35,9 @@ export const CopyRigthContainer = styled.div(
 );
 
 export const StyledFooter = styled.footer<IFooterProps>(
-  ({ theme: { colors, typography }, appContext }) => css`
+  ({ theme: { colors, typography }, isHabitatContext }) => css`
     align-items: center;
-    background-color: ${appContext === 'affirm' ? colors.white : colors.beige[60] };
+    background-color: ${isHabitatContext ? colors.beige[60] : colors.white };
     border-top: 1px solid ${colors.beige[140]};
     box-sizing: border-box;
     display: flex;
