@@ -40,7 +40,7 @@ const Links: React.FC = () => {
 export function Footer({ isHabitatContext = true }: IFooter) {
   const currentYear = (new Date()).getFullYear();
   return (
-    <StyledFooter isHabitatContext={isHabitatContext}>
+    <StyledFooter isHabitatContext={isHabitatContext} role='footer' aria-label='footer'>
       <LinksContainer aria-labelledby="secondary">
         <Links />
       </LinksContainer>
